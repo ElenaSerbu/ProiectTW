@@ -1,0 +1,166 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "v1",
+		"title": "PrjDB API",
+    	"description": "RESTful webservice for searching information about events"
+	},
+	"host": "localhost",
+	"schemes": ["http", "https"],
+  	"basePath": "/",
+	"paths": {
+		"/articles": {
+			"get": {
+				"tags": ["Events"],
+				"operationId": "events_get",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Event"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"post": {
+				"tags": ["Events"],
+				"operationId": "events_post",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"parameters": [{
+					"name": "body",
+					"in": "body",
+					"required": true,
+					"schema": {
+					    "$ref": "#/definitions/Event"
+					}
+				}],
+				"responses": {
+					"201": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Event"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/events/{id}": {
+			"get": {
+				"tags": ["Events"],
+				"operationId": "events_getById",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Event"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"put": {
+				"tags": ["Events"],
+				"operationId": "events_put",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type": "string"
+				},{
+					"name": "body",
+					"in": "body",
+					"required": true,
+					"schema": {
+					    "$ref": "#/definitions/Event"
+					}
+				}],
+				"responses": {
+					"202": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Event"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			},
+			"delete": {
+				"tags": ["Events"],
+				"operationId": "events_delete",
+				"consumes": [],
+				"produces": ["application/json",
+				"text/json"],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Event"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"Event": {
+			"type": "object",
+			"properties": {
+				"id_events": {
+					"type": "integer"
+				},
+				"id_city": {
+					"type": "integer"
+				},
+				"event_type": {
+					"type": "string"
+				},
+				"id_data": {
+					"type": "integer"
+				}
+			
+			}
+		}
+		
+	}
+}
